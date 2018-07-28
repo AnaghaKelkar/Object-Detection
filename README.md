@@ -1,4 +1,4 @@
-Object Detection using Haar Classifier
+# Object Detection using Haar Classifier
 
 Haar classifier is a machine learning based approach , an algorithm created by Paul Viola and Michael Jones.
 Trained from many positive images (with faces) and negative images (without faces).
@@ -7,6 +7,7 @@ It starts by extracting Haar features from each image by above windows. Each win
 Now, all possible sizes of each window are placed on all possible locations of each image to calculate plenty of features.
 
 OpenCV:
+-------
 
 OpenCV is the most popular library for computer vision.
 OpenCV uses machine learning algorithms to search for faces within a picture. Because faces are so complicated, there isn’t one simple test that will tell you if it found a face or not. Instead, there are thousands of small patterns and features that must be matched.
