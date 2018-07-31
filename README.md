@@ -23,3 +23,10 @@ OpenCV uses cascades. What’s a cascade? The best answer can be found in the di
 The algorithm may have 30 to 50 of these stages or cascades, and it will only detect a face if all stages pass.
 
 The advantage is that the majority of the picture will return negative during the first few stages, which means the algorithm won’t waste time testing all 6000 features on it. 
+
+Wink Detection
+--------------
+1. First find "number of eyes" in the face area.
+2. If there are two eyes detected, then no wink.
+3. If there is only one eye, probably it's a wink.
+4. Fails in case where person closes one eye with a hand or person is standing at an angle where only one eye is visible.
