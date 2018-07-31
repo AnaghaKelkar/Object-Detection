@@ -49,5 +49,5 @@ for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
 cv2.imshow("Faces found", image)
-cv2.waitKey(0)
+cv2.waitKey(2000)
 # -- we display the image and wait for the user to press a key.
