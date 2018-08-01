@@ -58,7 +58,27 @@ def runonFolder(face_cascade, eye_cascade, folder):
             cv2.imshow(windowName, img)
             cv2.waitKey(2000)
     return totalCount
-    
+
+def runonVideo(face_cascade, eye_cascade):
+    videocapture = cv2.VideoCapture(0)
+    if not videocapture.isOpened():
+        print("Can't open video default camera!")
+        exit()
+    windowName = "Live Video"
+    showlive = True
+    while(showlive):
+        ret, frame = videocapture.read()
+        if not ret:
+            print("Can't capture frame")
+            exit()
+        cnt = detect(frame, face_cascade, eye_cascade)
+        print("Detections: {0}".format(cnt))
+        cv2.imshow(windowName, frame)
+        if cv2.waitKey(30)>=0:
+            showlive = False
+    videocapture.release()
+    cv2.destroyAllWindows()
+
 if __name__=='__main__':
     if len(sys.argv)!=1 and len(sys.argv)!=2:
         print(sys.argv[0] + " :got " + len(sys.argv)-1 + " arguments. Expecting 0 or 1 : [image-folder]")
@@ -71,5 +91,5 @@ if __name__=='__main__':
         folderName = sys.argv[1]
         detections = runonFolder(face_cascade, eye_cascade, folderName)
         print("Total of ", detections, " detections")
-    #else:
-        # runonVideo(face_cascade, eye_cascade)
+    else:
+        runonVideo(face_cascade, eye_cascade)
